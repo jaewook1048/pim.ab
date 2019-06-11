@@ -26,6 +26,7 @@ public class MemberViewController implements Initializable {
 	@FXML	private Button btnUpdate;
 	@FXML	private Button btnDelete;
 	
+	@FXML	private Button btnComso;
 	@FXML	private Button btnExecute;
 	@FXML	private TextArea taExecute;
 	@FXML	private TextField tfExecute;
@@ -67,10 +68,16 @@ public class MemberViewController implements Initializable {
 
 		btnCreate.setOnMouseClicked(event -> handleCreate());		
 		// btnDelete.setOnMouseClicked(e -> handleDelete());		
-		btnExecute.setOnMouseClicked(event -> handleExecute());	
+		//btnExecute.setOnMouseClicked(event -> handleExecute());	
 		
 		loadMemberTableView();
 	}
+	@FXML
+	private void handleComso() {
+		System.out.println("Console Comso!!");
+		taExecute.setText("Bless Comso");
+	}
+	
 	String str = ""; // 인스턴스 변수 - 객체 변수, 객체가 존재하는 동안 메모리에 존재
 	@FXML 
 	private void handleExecute() { // event source, listener, handler
@@ -138,7 +145,7 @@ public class MemberViewController implements Initializable {
 		if (selectedIndex >= 0) {
 			memberService.delete(tableViewMember.getItems().remove(selectedIndex));			
 		} else {
-			showAlert("������ �� �� �����ϴ�.");
+			showAlert("삭제를 실패하였습니다.");
         }
 	}
 	
